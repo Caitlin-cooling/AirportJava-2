@@ -13,14 +13,7 @@ public class Plane {
     }
 
     public static void main(String args[]) {
-        PrintStream currentPrintStream = new PrintStream(System.out);
-        Airport currentAirport = new Airport(12);
-        Weather currentWeather = new Weather();
 
-        Plane plane = new Plane(currentPrintStream, currentAirport, currentWeather);
-
-        System.out.println(plane.getState());
-        System.out.println(currentAirport.getPlaneCount());
     }
 
     public String getState() {

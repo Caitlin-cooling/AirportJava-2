@@ -10,16 +10,16 @@ public class AirportTest {
     @Before public void setUp() { airport = new Airport(20); }
 
     @Test
-    public void  airport_isInialisedWithPlaneCount_zero() {
+    public void  airport_isInialisedWithPlaneCount_one() {
         int result = airport.getPlaneCount();
-        assertEquals(result, 0);
+        assertEquals(result, 1);
     }
 
     @Test
     public void landPlane_increasesPlaneCount_byOne() {
         airport.landPlane();
         int result = airport.getPlaneCount();
-        assertEquals(result, 1);
+        assertEquals(result, 2);
     }
 
     @Test
@@ -27,7 +27,7 @@ public class AirportTest {
         airport.landPlane();
         airport.takeOffPlane();
         int result = airport.getPlaneCount();
-        assertEquals(result, 0);
+        assertEquals(result, 1);
     }
 
     @Test

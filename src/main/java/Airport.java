@@ -1,5 +1,5 @@
 public class Airport {
-    int planeCount = 0;
+    int planeCount = 1;
     int capacity;
 
     Airport(int airportCapacity) {
