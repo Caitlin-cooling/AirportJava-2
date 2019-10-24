@@ -23,6 +23,14 @@ public class AirportTest {
     }
 
     @Test
+    public void takeOffPlane_decreasesPlaneCount_byOne() {
+        airport.landPlane();
+        airport.takeOffPlane();
+        int result = airport.getPlaneCount();
+        assertEquals(result, 0);
+    }
+
+    @Test
     public void getCapacity_returnsTheSetCapacityOfAirport(){
         int result = airport.getCapacity();
         assertEquals(result, 20);

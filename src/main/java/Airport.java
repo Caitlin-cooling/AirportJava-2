@@ -17,4 +17,8 @@ public class Airport {
     public int getCapacity() {
         return capacity;
     }
+
+    public void takeOffPlane() {
+        planeCount --;
+    }
 }
