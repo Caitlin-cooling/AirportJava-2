@@ -4,16 +4,20 @@ public class Plane {
     private String state = "Landed";
     private PrintStream printStream;
     private Airport airport;
+    private Weather weather;
 
-    Plane(PrintStream stream, Airport givenAirport) {
+    Plane(PrintStream stream, Airport givenAirport, Weather givenWeather) {
         printStream = stream;
         airport = givenAirport;
+        weather = givenWeather;
     }
 
     public static void main(String args[]) {
-        Airport currentAirport = new Airport(12);
         PrintStream currentPrintStream = new PrintStream(System.out);
-        Plane plane = new Plane(currentPrintStream, currentAirport);
+        Airport currentAirport = new Airport(12);
+        Weather currentWeather = new Weather();
+
+        Plane plane = new Plane(currentPrintStream, currentAirport, currentWeather);
 
         System.out.println(plane.getState());
         System.out.println(currentAirport.getPlaneCount());
@@ -24,16 +28,20 @@ public class Plane {
     }
 
     public void takeOff() {
-        if (state == "Landed") {
+        if(weather.getWeather() == "Stormy") {
+            printStream.print("Plane can't take off when the weather is stormy!");
+        } else if (state != "Landed") {
+            printStream.print("Plane is already flying, cannot take off");
+        } else {
             state = "Flying";
             airport.takeOffPlane();
-        } else {
-            printStream.print("Plane is already flying, cannot take off");
         }
     }
 
     public void land() {
-        if(state == "Flying") {
+        if(weather.getWeather() == "Stormy") {
+            printStream.print("Plane can't take off when the weather is stormy!");
+        } else if(state == "Flying") {
             state = "Landed";
             airport.landPlane();
         } else {

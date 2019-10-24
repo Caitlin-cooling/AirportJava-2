@@ -16,7 +16,7 @@ public class WeatherTest {
     @Test
     public void whenRandomNumberIsOne_checkWeatherReturnsRainy() {
         String result = weather.checkWeather(1);
-        assertEquals(result, "Rainy");
+        assertEquals(result, "Stormy");
     }
 
     @Test

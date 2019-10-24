@@ -10,6 +10,7 @@ import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class PlaneTest {
     ByteArrayOutputStream outSpy = new ByteArrayOutputStream();
@@ -18,10 +19,14 @@ public class PlaneTest {
     @Mock
     private Airport airportMock;
 
+    @Mock
+    private Weather weatherMock;
+
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        plane = new Plane(new PrintStream(outSpy), airportMock);
+        when(weatherMock.getWeather()).thenReturn("Fine");
+        plane = new Plane(new PrintStream(outSpy), airportMock, weatherMock);
     }
 
     @Test
@@ -53,6 +58,13 @@ public class PlaneTest {
     }
 
     @Test
+    public void plane_canOnlyTakeOff_whenWeatherIsFine() {
+        when(weatherMock.getWeather()).thenReturn("Stormy");
+        plane.takeOff();
+        assertThat(outSpy.toString(), is("Plane can't take off when the weather is stormy!"));
+    }
+
+    @Test
     public void plane_hasStateLanded_whenLanded() {
         plane.takeOff();
         plane.land();
@@ -73,6 +85,14 @@ public class PlaneTest {
         plane.takeOff();
         plane.land();
         verify(airportMock).landPlane();
+    }
+
+    @Test
+    public void plane_canOnlyLand_whenWeatherIsFine() {
+        plane.takeOff();
+        when(weatherMock.getWeather()).thenReturn("Stormy");
+        plane.land();
+        assertThat(outSpy.toString(), is("Plane can't take off when the weather is stormy!"));
     }
 
 }

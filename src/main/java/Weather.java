@@ -14,7 +14,7 @@ public class Weather {
         if(number > 3) {
             return "Fine";
         } else {
-            return "Rainy";
+            return "Stormy";
         }
     }
 
