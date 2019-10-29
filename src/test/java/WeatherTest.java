@@ -3,10 +3,9 @@ import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
 
-
 public class WeatherTest {
 
-    Weather weather;
+    private Weather weather;
 
     @Before
     public void setUp() {

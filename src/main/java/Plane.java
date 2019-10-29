@@ -16,11 +16,11 @@ public class Plane {
 
     }
 
-    public String getState() {
+    protected String getState() {
         return state;
     }
 
-    public void takeOff() {
+    protected void takeOff() {
         if(weather.getWeather() == "Stormy") {
             printStream.print("Plane can't take off when the weather is stormy!");
         } else if (state != "Landed") {
@@ -31,7 +31,7 @@ public class Plane {
         }
     }
 
-    public void land() {
+    protected void land() {
         if(weather.getWeather() == "Stormy") {
             printStream.print("Plane can't take off when the weather is stormy!");
         } else if(state == "Flying") {

@@ -4,8 +4,8 @@ import org.junit.Test;
 import static junit.framework.TestCase.assertEquals;
 
 
-public class AirportTest {
-    Airport airport;
+public  class AirportTest {
+   private Airport airport;
 
     @Before public void setUp() { airport = new Airport(20); }
 

@@ -6,11 +6,11 @@ public class Weather {
         System.out.println(weather.getWeather());
     }
 
-    public String getWeather() {
+    protected String getWeather() {
         return checkWeather(getRandom());
     }
 
-    public String checkWeather(int number) {
+    protected String checkWeather(int number) {
         if(number > 3) {
             return "Fine";
         } else {

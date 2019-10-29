@@ -13,8 +13,8 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 public class PlaneTest {
-    ByteArrayOutputStream outSpy = new ByteArrayOutputStream();
-    Plane plane;
+    private ByteArrayOutputStream outSpy = new ByteArrayOutputStream();
+    private Plane plane;
 
     @Mock
     private Airport airportMock;

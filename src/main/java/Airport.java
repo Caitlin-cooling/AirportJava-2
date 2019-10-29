@@ -1,4 +1,4 @@
-public class Airport {
+class Airport {
     int planeCount = 1;
     int capacity;
 
@@ -6,19 +6,19 @@ public class Airport {
         capacity = airportCapacity;
     }
 
-    public int getPlaneCount() {
+    protected int getPlaneCount() {
         return planeCount;
     }
 
-    public void landPlane() {
+    protected void landPlane() {
         planeCount ++;
     }
 
-    public int getCapacity() {
+    protected int getCapacity() {
         return capacity;
     }
 
-    public void takeOffPlane() {
+    protected void takeOffPlane() {
         planeCount --;
     }
 }
