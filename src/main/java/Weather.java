@@ -11,11 +11,7 @@ public class Weather {
     }
 
     protected String checkWeather(int number) {
-        if(number > 3) {
-            return "Fine";
-        } else {
-            return "Stormy";
-        }
+        return number > 3 ? "Fine" : "Stormy";
     }
 
     private int getRandom() {
