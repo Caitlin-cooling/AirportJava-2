@@ -15,7 +15,7 @@ class Airport {
     }
 
     protected int getCapacity() {
-        return this.capacity;
+        return capacity;
     }
 
     protected void takeOffPlane() {

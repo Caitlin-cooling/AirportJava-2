@@ -21,24 +21,24 @@ public class Plane {
     }
 
     protected void takeOff() {
-        if(this.weather.getWeather() == "Stormy") {
-            this.stream.print("Plane can't take off when the weather is stormy!");
+        if(weather.getWeather() == "Stormy") {
+            stream.print("Plane can't take off when the weather is stormy!");
         } else if (state != "Landed") {
-            this.stream.print("Plane is already flying, cannot take off");
+            stream.print("Plane is already flying, cannot take off");
         } else {
             state = "Flying";
-            this.airport.takeOffPlane();
+            airport.takeOffPlane();
         }
     }
 
     protected void land() {
-        if(this.weather.getWeather() == "Stormy") {
-            this.stream.print("Plane can't take off when the weather is stormy!");
+        if(weather.getWeather() == "Stormy") {
+            stream.print("Plane can't take off when the weather is stormy!");
         } else if(state == "Flying") {
             state = "Landed";
-            this.airport.landPlane();
+            airport.landPlane();
         } else {
-            this.stream.print("Plane is already landed, cannot land");
+            stream.print("Plane is already landed, cannot land");
         }
     }
 }
