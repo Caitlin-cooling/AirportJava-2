@@ -2,8 +2,8 @@ class Airport {
     int planeCount = 1;
     int capacity;
 
-    Airport(int airportCapacity) {
-        capacity = airportCapacity;
+    Airport(int capacity) {
+        this.capacity = capacity;
     }
 
     protected int getPlaneCount() {
@@ -15,7 +15,7 @@ class Airport {
     }
 
     protected int getCapacity() {
-        return capacity;
+        return this.capacity;
     }
 
     protected void takeOffPlane() {

@@ -2,14 +2,14 @@ import java.io.PrintStream;
 
 public class Plane {
     private String state = "Landed";
-    private PrintStream printStream;
+    private PrintStream stream;
     private Airport airport;
     private Weather weather;
 
-    Plane(PrintStream stream, Airport givenAirport, Weather givenWeather) {
-        printStream = stream;
-        airport = givenAirport;
-        weather = givenWeather;
+    Plane(PrintStream stream, Airport airport, Weather weather) {
+        this.stream = stream;
+        this.airport = airport;
+        this.weather = weather;
     }
 
     public static void main(String args[]) {
@@ -21,24 +21,24 @@ public class Plane {
     }
 
     protected void takeOff() {
-        if(weather.getWeather() == "Stormy") {
-            printStream.print("Plane can't take off when the weather is stormy!");
+        if(this.weather.getWeather() == "Stormy") {
+            this.stream.print("Plane can't take off when the weather is stormy!");
         } else if (state != "Landed") {
-            printStream.print("Plane is already flying, cannot take off");
+            this.stream.print("Plane is already flying, cannot take off");
         } else {
             state = "Flying";
-            airport.takeOffPlane();
+            this.airport.takeOffPlane();
         }
     }
 
     protected void land() {
-        if(weather.getWeather() == "Stormy") {
-            printStream.print("Plane can't take off when the weather is stormy!");
+        if(this.weather.getWeather() == "Stormy") {
+            this.stream.print("Plane can't take off when the weather is stormy!");
         } else if(state == "Flying") {
             state = "Landed";
-            airport.landPlane();
+            this.airport.landPlane();
         } else {
-            printStream.print("Plane is already landed, cannot land");
+            this.stream.print("Plane is already landed, cannot land");
         }
     }
 }
