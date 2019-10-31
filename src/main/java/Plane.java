@@ -2,6 +2,9 @@ import java.io.PrintStream;
 
 public class Plane {
     private String state = "Landed";
+    private PrintStream stream;
+    private Airport airport;
+    private Weather weather;
 
     public static class Builder {
         private PrintStream stream;
@@ -36,7 +39,17 @@ public class Plane {
     }
 
     public static void main(String args[]) {
+        Airport airport = new Airport(20);
+        Weather weather = new Weather();
+        PrintStream stream = new PrintStream(System.out);
 
+        Plane plane = new Builder(airport)
+                        .getWeather(weather)
+                        .setPrintStream(stream)
+                        .build();
+
+        plane.takeOff();
+        System.out.println(plane.getState());
     }
 
     protected String getState() {
