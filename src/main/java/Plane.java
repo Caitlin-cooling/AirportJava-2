@@ -2,14 +2,37 @@ import java.io.PrintStream;
 
 public class Plane {
     private String state = "Landed";
-    private PrintStream stream;
-    private Airport airport;
-    private Weather weather;
 
-    Plane(PrintStream stream, Airport airport, Weather weather) {
-        this.stream = stream;
-        this.airport = airport;
-        this.weather = weather;
+    public static class Builder {
+        private PrintStream stream;
+        private Airport airport;
+        private Weather weather;
+
+        public Builder(Airport airport) {
+            this.airport = airport;
+        }
+
+        public Builder getWeather(Weather weather) {
+            this.weather = weather;
+            return this;
+        }
+
+        public Builder setPrintStream(PrintStream stream) {
+            this.stream = stream;
+            return this;
+        }
+
+        public Plane build() {
+            Plane plane = new Plane();
+            plane.airport = this.airport;
+            plane.weather = this.weather;
+            plane.stream = this.stream;
+            return plane;
+        }
+    }
+
+    private Plane() {
+        // here you would have getters and setters for your variables?
     }
 
     public static void main(String args[]) {
