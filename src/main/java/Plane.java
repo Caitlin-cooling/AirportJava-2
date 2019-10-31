@@ -6,21 +6,21 @@ public class Plane {
     private Airport airport;
     private Weather weather;
 
-    public static class Builder {
+    public static class PlaneBuilder {
         private PrintStream stream;
         private Airport airport;
         private Weather weather;
 
-        public Builder(Airport airport) {
+        public PlaneBuilder(Airport airport) {
             this.airport = airport;
         }
 
-        public Builder getWeather(Weather weather) {
+        public PlaneBuilder getWeather(Weather weather) {
             this.weather = weather;
             return this;
         }
 
-        public Builder setPrintStream(PrintStream stream) {
+        public PlaneBuilder setPrintStream(PrintStream stream) {
             this.stream = stream;
             return this;
         }
@@ -43,7 +43,7 @@ public class Plane {
         Weather weather = new Weather();
         PrintStream stream = new PrintStream(System.out);
 
-        Plane plane = new Builder(airport)
+        Plane plane = new PlaneBuilder(airport)
                         .getWeather(weather)
                         .setPrintStream(stream)
                         .build();
