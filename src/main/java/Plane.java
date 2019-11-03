@@ -34,10 +34,6 @@ public class Plane {
         }
     }
 
-    private Plane() {
-        // here you would have getters and setters for your variables?
-    }
-
     public static void main(String args[]) {
         Airport airport = new Airport(20);
         Weather weather = new Weather();
@@ -49,11 +45,16 @@ public class Plane {
                         .build();
 
         plane.takeOff();
+        System.out.println(plane.getWeather());
         System.out.println(plane.getState());
     }
 
     protected String getState() {
         return state;
+    }
+
+    protected String getWeather() {
+        return this.weather.getWeather();
     }
 
     protected void takeOff() {
